@@ -1,0 +1,12 @@
+#strength-meter {
+  width 100%; height 8px; background #eee; margin-top 8px;
+}
+#strength-meter span {
+  display block; height 100%; width 0; background red;
+  border-radius 4px; transition width 300ms ease, background 300ms;
+}
+.strength-0 span { width 20%; background red; }
+.strength-1 span { width 40%; background orangered; }
+.strength-2 span { width 60%; background orange; }
+.strength-3 span { width 80%; background yellowgreen; }
+.strength-4 span { width 100%; background green; }

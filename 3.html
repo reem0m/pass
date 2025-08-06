@@ -1,0 +1,22 @@
+const pwd = document.getElementById('password-input');
+const meter = document.getElementById('strength-meter');
+const text = document.getElementById('strength-text');
+
+pwd.addEventListener('input', function () {
+  const value = pwd.value;
+  const score = evaluate(value);
+  meter.className = '';
+  meter.classList.add(`strength-${score}`);
+  const labels = ['Very Weak','Weak','Medium','Strong','Very Strong'];
+  text.textContent = labels[score];
+});
+
+function evaluate(p) {
+  let score = 0;
+  if (p.length >= 8) score++;
+  if (/[a-z]/.test(p)) score++;
+  if (/[A-Z]/.test(p)) score++;
+  if (/[0-9]/.test(p)) score++;
+  if (/[^a-zA-Z0-9]/.test(p)) score++;
+  return score;
+}
